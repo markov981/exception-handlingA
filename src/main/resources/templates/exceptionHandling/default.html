@@ -1,0 +1,73 @@
+
+
+<!doctype html>
+<html>
+  <head>
+    <title>Handle Bad Input</title>
+    <style>
+      input { width: 50%; }
+    </style>
+  </head>
+  <body>
+  
+    <form action="/handleString"
+          method="post">
+      <input type="text"
+             name="probablySomeText"
+             placeholder="should be at least 4 characters, but...">
+      <button>Submit</button>
+      {{#stringResult}}
+         {{ stringResult }}
+      {{/stringResult}}
+    </form>
+    
+    <form action="/handleInteger"
+          method="post">
+      <input type="text"
+             name="probablyAnInteger"
+             placeholder="should be an integer, but...">
+      <button>Submit</button>
+      {{#integerResult}}
+         {{ integerResult }}
+      {{/integerResult}}
+    </form>
+    
+    <form action="/handleDecimal"
+          method="post">
+      <input type="text"
+             name="probablyADecimal"
+             placeholder="should be a decimal, but...">
+      <button>Submit</button>
+      {{#decimalResult}}
+         {{ decimalResult }}
+      {{/decimalResult}}
+    </form>
+    
+    <form action="/handleDate"
+          method="post">
+      <input type="text"
+             name="probablyADate"
+             placeholder="should be a date (YYYY-MM-DD), but...">
+      <button>Submit</button>
+      {{#dateResult}}
+         {{ dateResult }}
+      {{/dateResult}}
+    </form>
+    
+    <form action="/handleUrl"
+          method="post">
+      <input type="text"
+             name="probablyAUrl"
+             placeholder="should be a URL (http://example.com), but...">
+      <button>Submit</button>
+      
+      {{#urlResult}}
+         <a href="{{ urlResult }}">{{ urlResult }}</a>
+      {{/urlResult}}
+      {{#urlFailure}}
+         {{ urlFailure }}
+      {{/urlFailure}}
+      
+    </form>
+  </body>
+</html>
